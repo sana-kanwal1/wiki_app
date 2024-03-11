@@ -1,0 +1,8 @@
+<h1>Wiki</h1>
+<h2>Site Contributers</h2>
+<ul>
+  <% @contributers.each do |contributer| %>
+    <li> <%= '> ' + contributer.name %></li>
+  <% end %>
+</ul>
+<%= link_to 'Home', root_path %>

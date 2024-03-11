@@ -1,0 +1,8 @@
+<h1>My Wiki</h1>
+
+<h2>Site Contributers</h2>
+<ul>
+  <% Author.all.each do |contributer| %>
+    <li> <%= '> ' + contributer.name %></li>
+  <% end %>
+</ul>

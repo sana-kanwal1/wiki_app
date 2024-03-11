@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= @wiki_post.title.titleize %></h1>
+<p>Created on <%= @wiki_post.created_at.strftime('%B %d, %Y') %></p>
+<p>Description: <%= @wiki_post.description %></p>
+
+<% if @wiki_post.image.attached? %>
+  <%= image_tag @wiki_post.image %>
+<% end %>
+
+<p>Author: <%=link_to @wiki_post.author.name.titleize, author_path(@wiki_post.author)%><p>
+
+<div>
+  | <%= link_to "Edit this wiki post", edit_wiki_post_path(@wiki_post) %> |
+  <%= link_to "Destroy this author", @wiki_post, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete post #{@wiki_post.title}?" } %> |
+  <%= link_to "Back to wiki posts", wiki_posts_path %> |
+</div>

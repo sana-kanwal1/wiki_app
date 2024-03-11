@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @author %>
+
+<ul>
+  <% @author.wiki_posts.each do |post| %>
+    <li><%= link_to post.title, wiki_post_path(post) %></li>
+  <% end %>
+<ul>
+
+<div>
+  | <%= link_to "Edit this author", edit_author_path(@author) %> |
+  <%= link_to "Destroy this author", @author, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@author.name}?" } %> |
+  <%= link_to "Back to authors", authors_path %> |
+</div>

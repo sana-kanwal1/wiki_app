@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Authors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.name %></td>
+        <td><%= author.email %></td>
+        <td><%= author.created_at.strftime('%B %d, %Y') %></td>
+        <td><%= author.updated_at.strftime('%B %d, %Y') %></td>
+        <td>
+          | <%= link_to 'View', author_path(author) %> |
+          <%= link_to 'Edit', edit_author_path(author) %> |
+          <%= link_to 'Delete', author, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{author.name}?" } %> |
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+| <%= link_to "New author", new_author_path %> |
