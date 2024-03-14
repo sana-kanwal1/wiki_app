@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :authors
   resources :wiki_posts
-  resources :authors
+  resources :authors, only: [:index, :show, :destroy]
 
   namespace :welcome do
     get 'index'

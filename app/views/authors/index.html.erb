@@ -21,7 +21,6 @@
         <td><%= author.updated_at.strftime('%B %d, %Y') %></td>
         <td>
           | <%= link_to 'View', author_path(author) %> |
-          <%= link_to 'Edit', edit_author_path(author) %> |
           <%= link_to 'Delete', author, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{author.name}?" } %> |
         </td>
       </tr>
@@ -30,4 +29,4 @@
 </table>
 
 
-| <%= link_to "New author", new_author_path %> |
+| <%= link_to "New author", new_author_registration_path %> |

@@ -1,8 +1,9 @@
-<h1>My Wiki</h1>
+<h1>Wiki</h1>
 
-<h2>Site Contributers</h2>
-<ul>
-  <% Author.all.each do |contributer| %>
-    <li> <%= '> ' + contributer.name %></li>
-  <% end %>
-</ul>
+<% if author_signed_in? %>
+  <h1>Welcome, <%= current_author.name %></h1>
+<% else %>
+  <h1>Home</h1>
+  <%= link_to 'Sign in', new_author_session_path %>
+  <%= link_to 'Sign Up', new_author_registration_path %>
+<% end %>
